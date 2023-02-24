@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "./movieList.css";
 import { useParams } from "react-router-dom";
 import Cards from "../card/card";
 
-const MovieList = () => {
+function MovieList() {
   const [movieList, setMovieList] = useState([]);
   const { type } = useParams();
 
@@ -15,7 +16,7 @@ const MovieList = () => {
     getData();
   }, [type]);
 
-  const getData = () => {
+  function getData() {
     fetch(
       `https://api.themoviedb.org/3/movie/${
         type ? type : "popular"
@@ -23,7 +24,7 @@ const MovieList = () => {
     )
       .then((res) => res.json())
       .then((data) => setMovieList(data.results));
-  };
+  }
 
   return (
     <div className="movie__list">
@@ -35,6 +36,6 @@ const MovieList = () => {
       </div>
     </div>
   );
-};
+}
 
 export default MovieList;

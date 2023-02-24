@@ -3,7 +3,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "./card.css";
 import { Link } from "react-router-dom";
 
-const Cards = ({ movie }) => {
+function Cards({ movie }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -53,6 +53,6 @@ const Cards = ({ movie }) => {
       )}
     </>
   );
-};
+}
 
 export default Cards;
